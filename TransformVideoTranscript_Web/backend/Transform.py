@@ -7,10 +7,16 @@ import whisper
 # folder consts
 UPLOAD_FOLDER = "uploads"
 AUDIO_FOLDER = "audio"
-MODEL_NAME = "base" #based on Graphics Card (GPU)  for M2 Macbook, it runs on the CPU since Apple GPUs aren't directly supported by Pytorch yet
+MODEL_NAME = "tiny" #based on Graphics Card (GPU)  for M2 Macbook, it runs on the CPU since Apple GPUs aren't directly supported by Pytorch yet
 
-# Whisper model preload (for higher processing efficiency)
-model = whisper.load_model(MODEL_NAME)
+_model_instance = None
+
+def get_model():
+    global _model_instance
+    if _model_instance is None:
+        print("🔁 Lazy-loading Whisper model...")
+        _model_instance = whisper.load_model(MODEL_NAME)
+    return _model_instance
 
 def extract_audio(video_path, audio_path="temp_audio.wav"):
     # print("🎧 extracting audio...") extract audio from video, and store with .wav, return to audio folder
@@ -32,5 +38,5 @@ def extract_audio(video_path, audio_path="temp_audio.wav"):
 def transcribe_audio(audio_path) -> str:
     #print("🧠 Loading Whisper and generating transcript...") 
     #use Whisper to transform audio and return txt
-    result = model.transcribe(audio_path)
+    result = get_model().transcribe(audio_path)
     return result["text"]

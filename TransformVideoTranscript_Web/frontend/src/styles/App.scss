@@ -1,0 +1,115 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(219, 217, 217, 0.5);
+  width: 60vw;
+  height: 100vh;
+  z-index: 1;
+  .title{
+    margin: 0 0 8vh 0;
+    font-size: 10vh;
+    color: white;
+    text-shadow: 2px 5px 5px grey;
+  }
+  .header-3{
+    margin: 2vh 0;
+    font-size: 1.6rem;
+    color: white;
+  }
+  .paragraph{
+    margin: 0 0 10vh 0;
+    font-size: 3vh;
+    color: rgb(239, 238, 238);
+    // text-shadow: 0 2px 2px rgb(251, 239, 239);    
+  }
+
+  .paragraph-2{
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+  }
+  .upload-file {
+    font-size: 1.5vh;
+  }
+  .input-submit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+
+  .transcript-pre{
+    margin: 2vw 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 55vw;    
+    font-size: 0.8rem;
+    color: rgb(255, 254, 254);
+  }
+}
+
+.Particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  canvas{
+    background: linear-gradient(135deg, #667eea 0%, #fc5c7d 90%) !important;
+  }
+}
+
+.submit-button {
+  padding: 1vh 3vh;
+  font-size: 2vh;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #fc5c7d, #6a82fb); // gradient
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-size: 200% 200%;
+  animation: gradientFlow 4s ease infinite;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: none;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+

@@ -1,2 +1,17 @@
-venv310/
-Video
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# VS code
+.vscode/
+
+# macOS sys
+.DS_Store
+#Node.js
+node_modules/
+
+# Flask 
+TransformVideoTranscript_Web/backend/uploads/
+TransformVideoTranscript_Web/backend/audio/
+TransformVideoTranscript_Web/backend/transcripts/

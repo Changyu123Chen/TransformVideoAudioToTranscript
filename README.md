@@ -1,8 +1,10 @@
 # 🎬 TransformVideoTranscript
 
-A lightweight CLI tool to extract audio from a video file and generate a transcript using OpenAI's Whisper model.
+A web-based and CLI tool to extract audio from video files and generate transcripts using OpenAI's Whisper model.
 
 ## 📦 Features
+
+- 🌐 Now available as a website using Vercel (frontend) and Render (backend)
 
 - 🎧 Automatically extracts audio from a video file using `ffmpeg`
 - 🧠 Uses OpenAI Whisper (`base`, `small`, etc.) to transcribe the audio
@@ -53,3 +55,14 @@ __pycache__/
 *.wav
 *.txt
 ```
+
+
+## 🌍 Deployment Notes
+
+This project has been updated to include both frontend and backend components, deployed on Vercel and Render respectively.
+
+However, due to memory constraints on the free Render plan, the backend may fail to perform actual transcription.
+
+👉 recommend cloning this repository and running the app locally for full functionality.
+
+🔗 Demo Website: [https://transform-video-audio-to-transcript.vercel.app/](https://transform-video-audio-to-transcript.vercel.app/)

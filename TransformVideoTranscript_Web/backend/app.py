@@ -12,6 +12,10 @@ os.makedirs(TRANSCRIPT_FOLDER, exist_ok=True)
 app = Flask(__name__)   #declare this is a flask app; create flask application instance; used to define routes
 CORS(app)               #cross origin resource sharing, 
 
+@app.route("/")
+def home():
+    return "Hello from Flask!"
+
 @app.route("/upload", methods=["POST"])
 def upload_files():
     print(">>> Received upload request")

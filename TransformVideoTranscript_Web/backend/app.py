@@ -50,9 +50,6 @@ def upload_files():
 def download_file(name):
     return send_from_directory(TRANSCRIPT_FOLDER, name, as_attachment=True)
 
-@app.route("/test", methods=["POST"])
-def test_route():
-    print(">>> Test route hit!")
-    return jsonify({"message": "success"})
 if __name__ == "__main__":
-    app.run(debug=True, port=3001)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

@@ -2,6 +2,7 @@ import uuid
 import subprocess
 import os
 # import sys
+import numpy as np
 import whisper
 
 # folder consts

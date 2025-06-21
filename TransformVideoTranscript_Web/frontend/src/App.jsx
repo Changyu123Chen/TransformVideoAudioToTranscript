@@ -3,7 +3,7 @@ import axios from 'axios'
 import './styles/App.scss'
 import ParticleBackground from "./ParticleBackground";
 // import './App.css'
-
+import Navbar from './Navbar';
 function App() {
     const [files, setFiles] = useState([]);
     const [uploading, setUploading] = useState(false);
@@ -24,24 +24,27 @@ function App() {
         }
         
         try {
-            setUploading(true);
-            setProgress(0);
-            setTransforming(true);
+        //     setUploading(true);
+        //     setProgress(0);
+        //     setTransforming(true);
 
-            const res = await axios.post('/upload', formData, {
-                headers:{'Content-Type': 'multipart/form-data'},
-                onUploadProgress: (e) => {
-                const percent = Math.round((e.loaded * 100) / e.total);
-                setProgress(percent);
-                }
-            });
+        //     const res = await axios.post('/upload', formData, {
+        //         headers:{'Content-Type': 'multipart/form-data'},
+        //         onUploadProgress: (e) => {
+        //         const percent = Math.round((e.loaded * 100) / e.total);
+        //         setProgress(percent);
+        //         }
+        //     });
 
-            console.log('Upload result: ', res.data);
-            setUploading(false);
-            setProgress(100);
-            setTransforming(false);
-            setResults(res.data);
-        }catch (err) {
+        //     console.log('Upload result: ', res.data);
+        //     setUploading(false);
+        //     setProgress(100);
+        //     setTransforming(false);
+        //     setResults(res.data);
+        // }catch (err) {
+            alert("Backend service is currently unavailable due to memory limits on Render. Please clone the project and run locally to use the transform feature.");
+            return;
+        } catch (err) {        
             console.error(err);
             setUploading(false);
             setTransforming(false);
@@ -49,7 +52,8 @@ function App() {
     }
     return (
         <>
-            <ParticleBackground />
+            {/* <Navbar /> */}
+            {/* <ParticleBackground /> */}
             <div className='app'>
                 <h1 className='title'> Video to Transcript </h1>
                 <p className='paragraph'>Upload videos to get the Transcript!</p>
